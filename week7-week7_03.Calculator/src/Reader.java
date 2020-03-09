@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
 public class Reader {
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner reader = new Scanner(System.in);
 
     public String readString() {
-        String word = scanner.nextLine();
+        String word = reader.nextLine();
         return word;
     }
 
     public int readInteger() {
-        int number = Integer.parseInt(scanner.nextLine());
+        int number = Integer.parseInt(reader.nextLine());
         return number;
     }
 }
