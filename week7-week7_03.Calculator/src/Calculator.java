@@ -1,14 +1,10 @@
 public class Calculator {
     private Reader reader;
-    private int sum;
-    private int difference;
-    private int product;
+    private int calculationDone;
 
     public Calculator() {
         reader = new Reader();
-        sum = 0;
-        difference = 0;
-        product = 0;
+        calculationDone = 0;
     }
 
     public void start() {
@@ -33,10 +29,13 @@ public class Calculator {
     private void sum() {
         System.out.print("value1: ");
         int value1 = reader.readInteger();
-                System.out.print("value2: ");
+        System.out.print("value2: ");
         int value2 = reader.readInteger();
-        sum = value1 + value2;
+
+        int sum = value1 + value2;
         System.out.println("sum of the values: " + sum);
+
+        calculationDone++;
     }
 
     private void difference() {
@@ -44,8 +43,11 @@ public class Calculator {
         int value1 = reader.readInteger();
         System.out.print("value2: ");
         int value2 = reader.readInteger();
-        difference = value1 - value2;
+
+        int difference = value1 - value2;
         System.out.println("difference of the values: " + difference);
+
+        calculationDone++;
     }
 
     private void product() {
@@ -53,11 +55,14 @@ public class Calculator {
         int value1 = reader.readInteger();
         System.out.print("value2: ");
         int value2 = reader.readInteger();
-        product = value1 * value2;
+
+        int product = value1 * value2;
         System.out.println("product of the values: " + product);
+
+        calculationDone++;
     }
 
     private void statistics() {
-        System.out.println();
+        System.out.println("Calculations done " + calculationDone);
     }
 }
