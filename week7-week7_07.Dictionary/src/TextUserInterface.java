@@ -25,7 +25,7 @@ public class TextUserInterface {
 
             if(statement.toLowerCase().equals("quit")) {
                 System.out.println("Cheers!");
-                System. exit(0);
+                break;
             }
             else if(statement.toLowerCase().equals("add")) {
                 System.out.print("In Finnish: ");
