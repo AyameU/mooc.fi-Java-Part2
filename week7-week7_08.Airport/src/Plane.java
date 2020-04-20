@@ -1,21 +1,22 @@
 public class Plane {
-    private String name;
+
+    private String id;
     private int capacity;
 
-    public Plane(String planeName, int planeCapacity) {
-        this.name = planeName;
-        this.capacity = planeCapacity;
+    public Plane(String id, int capacity) {
+        this.id = id;
+        this.capacity = capacity;
     }
 
-    public String getName() {
-        return this.name;
+    public String getId() {
+        return this.id;
     }
 
-    public int getCapacity() {
+    public void getCapacity() {
         return this.capacity;
     }
 
     public String toString() {
-        return this.name + " (" + this.capacity + ")";
+        return this.id + "(" + this.capacity + " ppl)";
     }
 }
