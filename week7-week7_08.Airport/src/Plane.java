@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Plane {
 
     private String id;
@@ -8,11 +10,13 @@ public class Plane {
         this.capacity = capacity;
     }
 
+    // Plane Info
+
     public String getId() {
         return this.id;
     }
 
-    public void getCapacity() {
+    public int getCapacity() {
         return this.capacity;
     }
 
