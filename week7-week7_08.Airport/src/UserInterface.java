@@ -1,6 +1,6 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 public class UserInterface {
     private Scanner reader;
@@ -23,7 +23,6 @@ public class UserInterface {
             if(command.equals("1")) {
                 System.out.print("Give plane ID: ");
                 String planeId = reader.nextLine();
-
 
                 System.out.print("Give plane capacity: ");
                 int planeCapacity = Integer.parseInt(reader.nextLine());
@@ -51,6 +50,9 @@ public class UserInterface {
 
                 flights.add(new Flight(airport.get(planeId), departureCode, destinationCode));
             }
+
+            // Initiate Flight service Panel
+
             else {
                 System.out.println("Flight service panel");
                 System.out.println("--------------------");
@@ -69,13 +71,7 @@ public class UserInterface {
                         System.out.print("Give plane ID: ");
                         String planeId = reader.nextLine();
 
-                        if(hasPlane(planeId)) {
-                            printPlaneInfo(airport.get(planeId));
-                        }
-                        else {
-                            System.out.println("That plane doesn't exist.");
-                            break;
-                        }
+                        printPlaneInfo(planeId);
                     }
                     else {
                         break;
@@ -110,28 +106,24 @@ public class UserInterface {
 
     // Plane Methods
 
-    public void addPlane(Plane plane) {
-        if(airport.containsKey(plane.getId())) {
-            System.out.println("No plane exists with that name.");
-        }
-        else {
-            airport.put(plane.getId(), plane);
-        }
-    }
-
-    public void printPlaneInfo(Plane plane) {
-        System.out.println(plane);
-    }
-
-    public void printPlanes() {
-        System.out.println(new ArrayList<Plane>(this.airport.values()));
-    }
-
     public boolean hasPlane(String planeId) {
-        if(airport.containsValue(planeId)) {
+        if(airport.containsKey(planeId)) {
             return true;
         }
         return false;
+    }
+
+    public void printPlaneInfo(String planeId) {
+        if(hasPlane(planeId)) {
+            System.out.println(airport.get(planeId));
+        }
+    }
+
+    public void printPlanes() {
+        ArrayList<Plane> planes = new ArrayList<Plane>(this.airport.values());
+        for(Plane plane : planes) {
+            System.out.println(plane);
+        }
     }
 
     // Flight Methods
