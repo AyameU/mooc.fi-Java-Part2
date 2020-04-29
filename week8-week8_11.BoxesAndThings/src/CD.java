@@ -11,10 +11,12 @@ public class CD implements ToBeStored {
         weight = 0.1;
     }
 
+    @Override
     public double weight() {
         return weight;
     }
 
+    @Override
     public String toString() {
         return this.artist + ": " + this.title + " (" + this.publishingYear + ")";
     }
