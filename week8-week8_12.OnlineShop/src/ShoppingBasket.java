@@ -8,7 +8,14 @@ public class ShoppingBasket {
     public ShoppingBasket() {}
 
     public void add(String product, int price) {
-        purchases.put(product, new Purchase(product, 1, price));
+        int unitAmount = 1;
+
+        if(purchases.containsKey(product)) {
+            purchases.get(product).increaseAmount();
+        }
+        else if(!purchases.containsKey(product)) {
+            purchases.put(product, new Purchase(product, unitAmount, price));
+        }
     }
 
     public int price() {
