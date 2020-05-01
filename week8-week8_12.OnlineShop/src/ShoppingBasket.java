@@ -8,7 +8,7 @@ public class ShoppingBasket {
     public ShoppingBasket() {}
 
     public void add(String product, int price) {
-        purchases.put(product, new Purchase(product, price, 1));
+        purchases.put(product, new Purchase(product, 1, price));
     }
 
     public int price() {
@@ -18,5 +18,11 @@ public class ShoppingBasket {
             price += purchase.price();
         }
         return price;
+    }
+
+    public void print() {
+        for(Purchase purchase : purchases.values()) {
+            System.out.println(purchase);
+        }
     }
 }
