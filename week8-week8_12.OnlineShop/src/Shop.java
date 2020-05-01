@@ -30,7 +30,10 @@ public class Shop {
             // here, you write the code to add a product to the shopping basket, if the storehouse is not empty
             // and decreases the storehouse stocks
             // do not touch the rest of the code!
-
+            if(store.stock(product) > 0) {
+                store.take(product);
+                basket.add(product, store.price(product));
+            }
         }
 
         System.out.println("your purchases are:");
