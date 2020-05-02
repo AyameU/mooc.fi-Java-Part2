@@ -13,5 +13,14 @@ public class Main {
         System.out.println(second.compareTo(first));
         System.out.println(third.compareTo(second));
         System.out.println(first.compareTo(third));
+
+        Hand hand = new Hand();
+
+        hand.add( new Card(2, Card.SPADES) );
+        hand.add( new Card(14, Card.CLUBS) );
+        hand.add( new Card(12, Card.HEARTS) );
+        hand.add( new Card(2, Card.CLUBS) );
+
+        hand.print();
     }
 }
