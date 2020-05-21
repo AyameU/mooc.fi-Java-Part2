@@ -41,5 +41,33 @@ public class Main {
 
         hand2.sort();
         hand2.print();
+
+        System.out.println();
+        System.out.println("-- 8.15.4 --");
+
+        Hand hand3 = new Hand();
+
+        hand3.add( new Card(2, Card.SPADES) );
+        hand3.add( new Card(14, Card.CLUBS) );
+        hand3.add( new Card(12, Card.HEARTS) );
+        hand3.add( new Card(2, Card.CLUBS) );
+
+        Hand hand4 = new Hand();
+
+        hand4.add( new Card(11, Card.DIAMONDS) );
+        hand4.add( new Card(11, Card.CLUBS) );
+        hand4.add( new Card(11, Card.HEARTS) );
+
+        int comparison = hand3.compareTo(hand4);
+
+        if ( comparison < 0 ) {
+            System.out.println("the most valuable hand contains the cards");
+            hand4.print();
+        } else if ( comparison > 0 ){
+            System.out.println("the most valuable hand contains the cards");
+            hand3.print();
+        } else {
+            System.out.println("the hands are equally valuable");
+        }
     }
 }
