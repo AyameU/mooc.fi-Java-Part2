@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class Participant implements Comparable<Participant> {
     private String name;
-    private int length;
     private ArrayList<Integer> jumpLengths = new ArrayList<Integer>();
     private int points;
 
     public Participant(String name) {
         this.name = name;
-        this.length = 0;
         this.points = 0;
     }
 
@@ -16,16 +14,11 @@ public class Participant implements Comparable<Participant> {
         return this.name;
     }
 
-    public int getLength() {
-        return this.length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
+    public void addLength(int length) {
         jumpLengths.add(length);
     }
 
-    public ArrayList<Integer> getJumpLengths() {
+    public ArrayList<Integer> getLengths() {
         return jumpLengths;
     }
 
@@ -34,7 +27,7 @@ public class Participant implements Comparable<Participant> {
     }
 
     public void setPoints(int points) {
-        this.points = points;
+        this.points += points;
     }
 
     public String toString() {
@@ -43,10 +36,10 @@ public class Participant implements Comparable<Participant> {
 
     @Override
     public int compareTo(Participant p) {
-        if(this.length == p.getLength()) {
+        if(this.points == p.getPoints()) {
             return 0;
         }
-        else if(this.length < p.getLength()) {
+        else if(this.points < p.getPoints()) {
             return -1;
         }
         else {
