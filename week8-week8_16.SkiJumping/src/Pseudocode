@@ -1,0 +1,6 @@
+1. Intro text
+2. Get participant name one by one from user
+3. Create new Participant object with user input information
+4. Add object to Arraylist of Participants (in Main)
+4. Repeat
+4. If user input is an empty string, go to jumping phase
