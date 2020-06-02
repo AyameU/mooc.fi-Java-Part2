@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class UserInterface {
     private Scanner scanner;
@@ -17,7 +14,7 @@ public class UserInterface {
         System.out.println();
 
         addParticipants();
-        jumpingPhase();
+        startTournament();
     }
 
     public void addParticipants() {
@@ -35,16 +32,16 @@ public class UserInterface {
         while(!name.equals(""));
     }
 
-    public void jumpingPhase() {
+    public void startTournament() {
         System.out.println("The tournament begins!");
-        System.out.println();
 
         while(true) {
+            System.out.println();
             System.out.print("Write \"Jump\" to jump; otherwise you quit: ");
             String command = scanner.nextLine();
 
             if(command.equals("Jump")) {
-                jumpingRound();
+                round();
             }
             else {
                 break;
@@ -52,19 +49,46 @@ public class UserInterface {
         }
     }
 
-    public void jumpingRound() {
+    public void round() {
         int count = 1;
 
         System.out.println();
         System.out.println("Round " + round);
         System.out.println();
 
+        // Sort and list jump order
         System.out.println("Jumping order:");
         Collections.sort(participants);
         for(Participant p : participants) {
             System.out.println(count + ". " + p);
             count++;
         }
+
+        // prints results of current round
+        results();
+
+        // Increment round counter by 1; Round 2, Round 3, etc.
         round++;
+    }
+
+    public void results() {
+        Random randomizer = new Random();
+
+        System.out.println();
+        System.out.println("Results of round " + round);
+
+        for(Participant p : participants) {
+            int length = randomizer.nextInt(121 - 60) + 60;
+            int[] votes = new int[5];
+
+            // get votes
+            for(int i = 0; i < 5; i++) {
+                votes[i] = randomizer.nextInt(21 - 10) + 10;
+            }
+
+            System.out.println(p.getName());
+            System.out.println("  length: " + length);
+            System.out.println("  judge votes: " + Arrays.toString(votes));
+        }
     }
 }
