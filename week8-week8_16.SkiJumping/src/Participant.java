@@ -31,7 +31,7 @@ public class Participant implements Comparable<Participant> {
     }
 
     public String toString() {
-        return this.name + " (" + this.points + ")";
+        return this.name + " (" + this.points + " points)";
     }
 
     @Override

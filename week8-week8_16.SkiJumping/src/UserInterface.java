@@ -1,4 +1,9 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Random;
 
 public class UserInterface {
     private Scanner scanner;
@@ -15,14 +20,14 @@ public class UserInterface {
 
         addParticipants();
         startTournament();
+        tournamentResults();
     }
 
     public void addParticipants() {
         System.out.println("Write the names of the participants one at a time; an empty string brings you to the jumping phase.");
-
         String name;
         do {
-            System.out.print("Participant name: ");
+            System.out.print("  Participant name: ");
             name = scanner.nextLine();
 
             if(!name.equals("")) {
@@ -33,18 +38,18 @@ public class UserInterface {
     }
 
     public void startTournament() {
+        System.out.println();
         System.out.println("The tournament begins!");
 
         while(true) {
             System.out.println();
-            System.out.print("Write \"Jump\" to jump; otherwise you quit: ");
+            System.out.print("Write \"jump\" to jump; otherwise you quit: ");
             String command = scanner.nextLine();
 
-            if(command.equals("Jump")) {
+            if(command.equals("jump")) {
                 round();
             }
             else {
-                tournamentResults();
                 break;
             }
         }
@@ -62,7 +67,7 @@ public class UserInterface {
         System.out.println("Jumping order:");
         Collections.sort(participants);
         for(Participant p : participants) {
-            System.out.println(i + ". " + p);
+            System.out.println("  " + i + ". " + p);
             i++;
         }
 
@@ -100,9 +105,9 @@ public class UserInterface {
             p.setPoints(points);
 
             // print results
-            System.out.println(p.getName());
-            System.out.println("  length: " + length);
-            System.out.println("  judge votes: " + Arrays.toString(votes));
+            System.out.println("  " + p.getName());
+            System.out.println("    length: " + length);
+            System.out.println("    judge votes: " + Arrays.toString(votes));
         }
     }
 
@@ -114,6 +119,8 @@ public class UserInterface {
         System.out.println("Position    Name");
 
         int i = 1; // Numbered list counter
+        Collections.sort(participants);
+        Collections.reverse(participants);
 
         for(Participant p : participants) {
             System.out.println(i + "           " + p);
