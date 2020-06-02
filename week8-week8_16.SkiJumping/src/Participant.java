@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Participant {
+public class Participant implements Comparable<Participant> {
     private String name;
     private int length;
     private ArrayList<Integer> jumpLengths = new ArrayList<Integer>();
@@ -39,5 +39,18 @@ public class Participant {
 
     public String toString() {
         return this.name + " (" + this.points + ")";
+    }
+
+    @Override
+    public int compareTo(Participant p) {
+        if(this.length == p.getLength()) {
+            return 0;
+        }
+        else if(this.length < p.getLength()) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
     }
 }

@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
     private Scanner scanner;
-    private ArrayList<Participant> participants = new ArrayList<Participant>();
+    private List<Participant> participants = new ArrayList<Participant>();
+    private int round = 1;
 
     public UserInterface(Scanner scanner) {
         this.scanner = scanner;
@@ -35,15 +38,33 @@ public class UserInterface {
     public void jumpingPhase() {
         System.out.println("The tournament begins!");
         System.out.println();
-        System.out.print("Write \"Jump\" to jump; otherwise you quit: ");
 
-        String command = scanner.nextLine();
-        if(command.equals("Jump")) {
+        while(true) {
+            System.out.print("Write \"Jump\" to jump; otherwise you quit: ");
+            String command = scanner.nextLine();
 
-            // Do Stuff
-            for(Participant p : participants) {
-                System.out.println(p);
+            if(command.equals("Jump")) {
+                jumpingRound();
+            }
+            else {
+                break;
             }
         }
+    }
+
+    public void jumpingRound() {
+        int count = 1;
+
+        System.out.println();
+        System.out.println("Round " + round);
+        System.out.println();
+
+        System.out.println("Jumping order:");
+        Collections.sort(participants);
+        for(Participant p : participants) {
+            System.out.println(count + ". " + p);
+            count++;
+        }
+        round++;
     }
 }
