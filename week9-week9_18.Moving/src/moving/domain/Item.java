@@ -1,6 +1,6 @@
 package moving.domain;
 
-public class Item implements Thing{
+public class Item implements Thing, Comparable<Item>{
     private String name;
     private int volume;
 
@@ -20,5 +20,18 @@ public class Item implements Thing{
     @Override
     public int getVolume() {
         return this.volume;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        if(this.volume > o.getVolume()) {
+            return 1;
+        }
+        if(this.volume < o.getVolume()) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 }
