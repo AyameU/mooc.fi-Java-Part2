@@ -21,6 +21,7 @@ public class Main {
         System.out.println(thermometer.measure());
         */
 
+        /*
         Sensor kumpula = new Thermometer();
         kumpula.on();
         System.out.println("the temperature in Kumpula is "+kumpula.measure() + " degrees");
@@ -40,5 +41,23 @@ public class Main {
         helsinkiArea.addSensor(toronto);
         System.out.println("the temperature in Helsinki area is "+helsinkiArea.measure() + " degrees");
         System.out.println("The temp in the toronto area is " + toronto.measure() + " degrees");
+
+        */
+
+        Sensor kumpula = new Thermometer();
+        Sensor kaisaniemi = new Thermometer();
+        Sensor helsinkiVantaa = new Thermometer();
+
+        AverageSensor helsinkiArea = new AverageSensor();
+        helsinkiArea.addSensor(kumpula);
+        helsinkiArea.addSensor(kaisaniemi);
+        helsinkiArea.addSensor(helsinkiVantaa);
+
+        helsinkiArea.on();
+        System.out.println("the temperature in Helsinki area is "+helsinkiArea.measure() + " degrees");
+        System.out.println("the temperature in Helsinki area is "+helsinkiArea.measure() + " degrees");
+        System.out.println("the temperature in Helsinki area is "+helsinkiArea.measure() + " degrees");
+
+        System.out.println("readings: "+helsinkiArea.readings());
     }
 }
