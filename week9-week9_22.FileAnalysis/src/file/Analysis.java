@@ -12,6 +12,7 @@ public class Analysis {
 
         while (reader.hasNextLine()) {
             String line = reader.nextLine();
+            line += "\n";
             lines.add(line);
         }
         reader.close();
@@ -23,5 +24,14 @@ public class Analysis {
             numLines++;
         }
         return numLines;
+    }
+
+    public int characters() {
+        int numChars = 0;
+        for(String l : lines) {
+            numChars += l.length();
+        }
+
+        return numChars;
     }
 }
