@@ -58,4 +58,15 @@ public class WordInspection {
         }
         return palindromes;
     }
+
+    public List<String> wordsWhichContainAllVowels() {
+        List<String> containsAllVowels = new ArrayList<String>();
+
+        for(String l : words) {
+            if(l.contains("a") && l.contains("e") && l.contains("i") && l.contains("o") && l.contains("u") && l.contains("y") && l.contains("ä") && l.contains("ö")) {
+                containsAllVowels.add(l);
+            }
+        }
+        return containsAllVowels;
+    }
 }
