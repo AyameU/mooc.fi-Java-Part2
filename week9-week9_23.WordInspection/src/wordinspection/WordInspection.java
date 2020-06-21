@@ -1,8 +1,9 @@
 package wordinspection;
 
 import java.io.File;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class WordInspection {
     private ArrayList<String> words;
@@ -20,5 +21,16 @@ public class WordInspection {
 
     public int wordCount() {
         return words.size();
+    }
+
+    public List<String> wordsContainingZ() {
+        List<String> containsZ = new ArrayList<String>();
+
+        for(String l : words){
+            if(l.contains("z")) {
+                containsZ.add(l);
+            }
+        }
+        return containsZ;
     }
 }
