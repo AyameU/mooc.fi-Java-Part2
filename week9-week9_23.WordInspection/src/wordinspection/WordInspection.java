@@ -44,4 +44,18 @@ public class WordInspection {
         }
         return endsWithL;
     }
+
+    public List<String> palindromes() {
+        List<String> palindromes = new ArrayList<String>();
+        for(String l : words) {
+            String reverse = "";
+            for(int i = l.length() - 1; i >= 0; i--) {
+                reverse += l.charAt(i);
+            }
+            if(l.equals(reverse)) {
+                palindromes.add(l);
+            }
+        }
+        return palindromes;
+    }
 }
