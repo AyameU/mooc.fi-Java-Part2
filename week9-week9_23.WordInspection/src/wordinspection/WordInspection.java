@@ -33,4 +33,15 @@ public class WordInspection {
         }
         return containsZ;
     }
+
+    public List<String> wordsEndingInL() {
+        List<String> endsWithL = new ArrayList<String>();
+
+        for(String l : words){
+            if(l.endsWith("l")) {
+                endsWithL.add(l);
+            }
+        }
+        return endsWithL;
+    }
 }
