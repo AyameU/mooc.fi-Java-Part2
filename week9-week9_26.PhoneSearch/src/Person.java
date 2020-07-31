@@ -19,15 +19,16 @@ public class Person {
         this.phoneNumbers.add(phoneNumber);
     }
 
-    public void getPhoneNumber() {
-        if(phoneNumbers.isEmpty()) {
+    public Set<String> getPhoneNumber() {
+        /* if(phoneNumbers.isEmpty()) {
             System.out.println("not found");
         }
         else {
             for(String p : phoneNumbers) {
                 System.out.println(p);
             }
-        }
+        } */
+        return this.phoneNumbers;
     }
 
     public String toString() {

@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -31,10 +32,10 @@ public class UserInterface {
                 case "1":
                     System.out.print("whose number: ");
                     String name = scanner.nextLine();
-                    if(this.contactBook.contactBook.containsKey(name)) {
+                    if(this.contactBook.contact.containsKey(name)) {
                         System.out.print("number: ");
                         String phoneNumber = scanner.nextLine();
-                        contactBook.contactBook.get(name).addPhoneNumber(phoneNumber);
+                        contactBook.contact.get(name).addPhoneNumber(phoneNumber);
                     }
                     else {
                         System.out.println("not found");
@@ -43,14 +44,25 @@ public class UserInterface {
                 case "2":
                     System.out.print("whose number: ");
                     name = scanner.nextLine();
-                    if(contactBook.contactBook.containsKey(name)) {
-                        contactBook.contactBook.get(name).getPhoneNumber();
+                    if(contactBook.contact.containsKey(name)) {
+                        for(String p : contactBook.contact.get(name).getPhoneNumber()) {
+                            System.out.println(p);
+                        }
                     }
                     else {
                         System.out.println("not found");
                     };
                     break;
-                case "3": System.out.println("1");
+                case "3":
+                    System.out.print("number: ");
+                    String number = scanner.nextLine();
+                    Collection<Person> contacts = contactBook.contact.values();
+                    for(Person p : contacts) {
+                        for(String ph : p.getPhoneNumber())
+                        if(ph.equals(number)) {
+                            System.out.println(p.getName());
+                        }
+                    }
                     break;
                 case "4": System.out.println("1");
                     break;
@@ -60,7 +72,7 @@ public class UserInterface {
                     break;
                 case "7": System.out.println("1");
                     break;
-                case "8": System.out.println("1");
+                case "8":
                     break;
             }
         }

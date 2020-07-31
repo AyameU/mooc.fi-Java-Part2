@@ -1,14 +1,19 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ContactBook {
-    Map<String, Person> contactBook;
+    ArrayList<HashMap> contactBook = new ArrayList<HashMap>();
+    HashMap<String, Person> contact;
 
     public ContactBook() {
-        contactBook = new HashMap<String, Person>();
+        this.contact = new HashMap<String, Person>();
     }
 
     public void addPerson(Person person) {
-        contactBook.put(person.getName(), person);
+        this.contact.put(person.getName(), person);
+        contactBook.add(this.contact);
     }
+
+    // public String searchByPhoneNumber(Person person) {}
 }
