@@ -58,78 +58,47 @@ public class UserInterface {
                 input = scanner.nextLine();
                 Collection<Person> contacts = contactBook.contact.values();
                 for(Person p : contacts) {
-                    for(String ph : p.getPhoneNumber())
-                        if(ph.equals(input)) {
+                    for(String ph : p.getPhoneNumber()) {
+                        if (ph.equals(input)) {
                             System.out.println(p.getName());
                         }
+                    }
                 }
             }
             else if(command.equals("4")) {
-                System.out.println("1");
+                System.out.print("whose address: ");
+                input = scanner.nextLine();
+                if(contactBook.contact.containsKey(input)) {
+                        System.out.print("street: ");
+                        String street = scanner.nextLine();
+                        System.out.print("city: ");
+                        String city = scanner.nextLine();
+                        contactBook.contact.get(input).addAddress(street, city);
+                }
+                else {
+                    System.out.println("not found");
+                }
             }
             else if(command.equals("5")) {
-                System.out.println("1");
+                System.out.print("whose information: ");
+                input = scanner.nextLine();
+                if(contactBook.contact.containsKey(input)) {
+                    contactBook.contact.get(input).getAddress();
+                }
+                else {
+                    System.out.println("not found");
+                }
             }
             else if(command.equals("6")) {
-                System.out.println("1");
+                System.out.print("whose information: ");
+                input = scanner.nextLine();
+                if(contactBook.contact.containsKey(input)) {
+                    contactBook.contact.get(input).deleteInformation();
+                }
             }
             else if(command.equals("7")) {
                 System.out.println("1");
             }
-            else if(command.equals("8")) {
-                System.out.println("1");
-            }
-
-            /*
-            switch(command) {
-                case "1":
-                    System.out.print("whose number: ");
-                    String name = scanner.nextLine();
-                    if(this.contactBook.contact.containsKey(name)) {
-                        System.out.print("number: ");
-                        String phoneNumber = scanner.nextLine();
-                        contactBook.contact.get(name).addPhoneNumber(phoneNumber);
-                    }
-                    else {
-                        System.out.println("not found");
-                    };
-                    break;
-                case "2":
-                    System.out.print("whose number: ");
-                    name = scanner.nextLine();
-                    if(contactBook.contact.containsKey(name)) {
-                        for(String p : contactBook.contact.get(name).getPhoneNumber()) {
-                            System.out.println(p);
-                        }
-                    }
-                    else {
-                        System.out.println("not found");
-                    };
-                    break;
-                case "3":
-                    System.out.print("number: ");
-                    String number = scanner.nextLine();
-                    Collection<Person> contacts = contactBook.contact.values();
-                    for(Person p : contacts) {
-                        for(String ph : p.getPhoneNumber())
-                        if(ph.equals(number)) {
-                            System.out.println(p.getName());
-                        }
-                    }
-                    break;
-                case "4": System.out.println("1");
-                    break;
-                case "5": System.out.println("1");
-                    break;
-                case "6": System.out.println("1");
-                    break;
-                case "7": System.out.println("1");
-                    break;
-                case "8":
-                    break;
-            }
-
-             */
         }
     }
 }
