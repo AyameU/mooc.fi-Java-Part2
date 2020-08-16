@@ -27,7 +27,60 @@ public class UserInterface {
         while(!command.equals("x")) {
             System.out.print("command: ");
             command = this.scanner.nextLine();
+            String input;
 
+            if(command.equals("1")) {
+                System.out.print("whose number: ");
+                input = scanner.nextLine();
+                if(this.contactBook.contact.containsKey(input)) {
+                    System.out.print("number: ");
+                    String phoneNumber = scanner.nextLine();
+                    contactBook.contact.get(input).addPhoneNumber(phoneNumber);
+                }
+                else {
+                    System.out.println("not found");
+                }
+            }
+            else if(command.equals("2")) {
+                System.out.print("whose number: ");
+                input = scanner.nextLine();
+                if(contactBook.contact.containsKey(input)) {
+                    for(String p : contactBook.contact.get(input).getPhoneNumber()) {
+                        System.out.println(p);
+                    }
+                }
+                else {
+                    System.out.println("not found");
+                }
+            }
+            else if(command.equals("3")) {
+                System.out.print("number: ");
+                input = scanner.nextLine();
+                Collection<Person> contacts = contactBook.contact.values();
+                for(Person p : contacts) {
+                    for(String ph : p.getPhoneNumber())
+                        if(ph.equals(input)) {
+                            System.out.println(p.getName());
+                        }
+                }
+            }
+            else if(command.equals("4")) {
+                System.out.println("1");
+            }
+            else if(command.equals("5")) {
+                System.out.println("1");
+            }
+            else if(command.equals("6")) {
+                System.out.println("1");
+            }
+            else if(command.equals("7")) {
+                System.out.println("1");
+            }
+            else if(command.equals("8")) {
+                System.out.println("1");
+            }
+
+            /*
             switch(command) {
                 case "1":
                     System.out.print("whose number: ");
@@ -75,6 +128,8 @@ public class UserInterface {
                 case "8":
                     break;
             }
+
+             */
         }
     }
 }
