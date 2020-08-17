@@ -1,6 +1,6 @@
 package movable;
 
-public class Organism {
+public class Organism implements Movable {
 
     private int x;
     private int y;

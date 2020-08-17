@@ -1,4 +1,4 @@
 package movable;
 
-public class Group {
+public class Group implements Movable {
 }
