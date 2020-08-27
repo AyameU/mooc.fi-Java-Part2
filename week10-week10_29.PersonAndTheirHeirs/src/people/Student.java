@@ -5,7 +5,7 @@ public class Student extends Person{
 
     public Student(String name, String address) {
         super(name, address);
-        int credits = 0;
+        this.credits = 0;
     }
 
     public void study() {

@@ -1,5 +1,4 @@
-import people.Person;
-import people.Student;
+import people.*;
 
 public class Main {
 
@@ -23,5 +22,18 @@ public class Main {
         System.out.println( becca );
         becca.study();
         System.out.println( becca );
+
+        System.out.println("\n------\nPart 4\n------\n");
+
+        Teacher Pekka = new Teacher("Pekka Mikkola", "Korsontie Street 1 03100 Vantaa", 1200);
+        Teacher ekko = new Teacher("Ekko Ukkonen", "Mannerheimintie 15 Street 00100 Helsinki", 5400);
+        System.out.println( Pekka );
+        System.out.println( ekko );
+
+        Student olly = new Student("Olly", "Ida Albergintie 1 Street 00400 Helsinki");
+        for ( int i=0; i < 25; i++ ) {
+            olly.study();
+        }
+        System.out.println( olly );
     }
 }
