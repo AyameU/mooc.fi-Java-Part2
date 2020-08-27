@@ -1,4 +1,6 @@
 import people.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -35,5 +37,20 @@ public class Main {
             olly.study();
         }
         System.out.println( olly );
+
+        System.out.println("\n------\nPart 5\n------\n");
+
+        List<Person> people = new ArrayList<Person>();
+        people.add( new Teacher("Pekka Mikkola", "Korsontie Street 1 03100 Vantaa", 1200) );
+        people.add( new Student("Olli", "Ida Albergintie Street 1 00400 Helsinki") );
+
+        printDepartment(people);
+    }
+
+    public static void printDepartment(List<Person> people) {
+        // The method prints all the people in the parameter list
+        for(Person p : people) {
+            System.out.println(p);
+        }
     }
 }
