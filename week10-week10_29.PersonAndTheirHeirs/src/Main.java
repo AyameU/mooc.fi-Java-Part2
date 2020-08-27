@@ -16,5 +16,12 @@ public class Main {
         System.out.println("credits " + olli.credits());
         olli.study();
         System.out.println("credits "+ olli.credits());
+
+        System.out.println("\n------\nPart 3\n------\n");
+
+        Student becca = new Student("Becca", "Ida Albergintie Street 1 00400 Helsinki");
+        System.out.println( becca );
+        becca.study();
+        System.out.println( becca );
     }
 }
