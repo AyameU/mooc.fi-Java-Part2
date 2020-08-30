@@ -52,6 +52,55 @@ public class ContainerHistory {
         }
     }
 
+    /*
+
+    // this is not correct LOL
+
+    public double greatestFluctuation() {
+        if(historyList.isEmpty() || historyList.size() == 1) {
+            return 0.0;
+        }
+        else {
+            // Compare min and max values. absolute value is the num farthest from 0
+            if(Math.abs(this.maxValue()) > Math.abs(this.minValue())) {
+                return Math.abs(this.maxValue());
+            }
+            else {
+                return Math.abs(this.minValue());
+            }
+        }
+    }
+    */
+
+    public double greatestFluctuation() {
+        if(historyList.isEmpty() || historyList.size() == 1) {
+            return 0.0;
+        }
+        else {
+            Double num = 0.0;
+            for(int i = 0; i < historyList.size() - 1; i++) {
+                Double num2 = Math.abs(historyList.get(i) - historyList.get(i + 1));
+                if(num2 > num) {
+                    num = num2;
+                }
+            }
+            return num;
+        }
+    }
+
+    public double variance() {
+        if(historyList.isEmpty() || historyList.size() == 1) {
+            return 0.0;
+        }
+        else {
+            Double sum = 0.0;
+            for(Double d : historyList) {
+                sum += Math.pow(d - this.average(), 2);
+            }
+            return sum / (historyList.size() - 1);
+        }
+    }
+
     @Override
     public String toString() {
         return historyList.toString();

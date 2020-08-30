@@ -21,12 +21,22 @@ public class Main {
         System.out.println("\n------\nPart 4\n------\n");
 
         history.add(3.0);
-        history.add(4.5);
+        history.add(4.0);
         history.add(8.0);
         System.out.println(history);
         System.out.println(history.maxValue());
         System.out.println(history.minValue());
         System.out.println(history.average());
+
+        System.out.println("\n------\nPart 5\n------\n");
+
+        history.reset();
+        history.add(99.0);
+        history.add(99.0);
+        System.out.println(history);
+        System.out.println(history.average());
+        System.out.println(history.variance());
+        System.out.println(history.greatestFluctuation());
     }
 
 }
