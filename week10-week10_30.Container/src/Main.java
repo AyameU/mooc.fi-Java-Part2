@@ -61,6 +61,15 @@ public class Main {
         System.out.println(pop.history());
         pop.addToTheContainer(2500);
         System.out.println(pop.history());
+
+        System.out.println("\n------\nPart 8\n------\n");
+
+        ProductContainerRecorder juiceBox = new ProductContainerRecorder("Juice Box", 1000.0, 1000.0);
+        juiceBox.takeFromTheContainer(11.3);
+        juiceBox.addToTheContainer(1.0);
+//System.out.println(juice.history()); // [1000.0, 988.7, 989.7]
+
+        juiceBox.printAnalysis();
     }
 
 }

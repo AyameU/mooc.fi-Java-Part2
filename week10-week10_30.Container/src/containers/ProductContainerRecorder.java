@@ -41,4 +41,14 @@ public class ProductContainerRecorder extends ProductContainer {
             return amountAdded;
         }
     }
+
+    public void printAnalysis() {
+        System.out.println("Product: " + this.getName());
+        System.out.println("History: " + history);
+        System.out.println("Greatest product amount: " + history.maxValue());
+        System.out.println("Smallest product amount: " + history.minValue());
+        System.out.println("Average: " + history.average());
+        System.out.println("Greatest change: " + history.greatestFluctuation());
+        System.out.println("Variance: " + history.variance());
+    }
 }

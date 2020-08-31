@@ -53,18 +53,21 @@ public class ContainerHistory {
     }
 
     public double greatestFluctuation() {
-        if(historyList.isEmpty() || historyList.size() == 1) {
+        if (historyList.isEmpty() || historyList.size() == 1) {
             return 0.0;
-        }
-        else {
-            Double num = 0.0;
-            for(int i = 0; i < historyList.size() - 1; i++) {
-                Double num2 = Math.abs(historyList.get(i) - historyList.get(i + 1));
-                if(num2 > num) {
-                    num = num2;
+        } else {
+            ArrayList<Double> maxList = new ArrayList<Double>();
+            double max = 0.0;
+            for (int i = 0; i < historyList.size() - 1; i++) {
+                if (i != historyList.size() - 1) {
+                    max = historyList.get(i + 1) - historyList.get(i);
+                    maxList.add(max);
+                } else {
+                    max = historyList.get(i) - historyList.get(i - 1);
+                    maxList.add(max);
                 }
             }
-            return num;
+            return Math.abs(Collections.max(maxList));
         }
     }
 
