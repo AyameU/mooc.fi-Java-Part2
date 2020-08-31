@@ -37,6 +37,30 @@ public class Main {
         System.out.println(history.average());
         System.out.println(history.variance());
         System.out.println(history.greatestFluctuation());
+
+        System.out.println("\n------\nPart 6\n------\n");
+
+        // the well known way:
+        ProductContainerRecorder juice = new ProductContainerRecorder("Juice", 1000.0, 1000.0);
+        juice.takeFromTheContainer(11.3);
+        System.out.println(juice.getName()); // Juice
+        juice.addToTheContainer(1.0);
+        System.out.println(juice); // Juice: volume = 989.7, free space 10.3
+
+        // history() does not work properly, yet:
+        System.out.println(juice.history()); // [1000.0]
+        // in fact, we only retrieve the original value which was given to the constructor...
+
+        System.out.println("\n------\nPart 7\n------\n");
+
+        ProductContainerRecorder pop = new ProductContainerRecorder("Pop", 1000, 500);
+        System.out.println(pop.history());
+        pop.addToTheContainer(250);
+        System.out.println(pop.history());
+        pop.takeFromTheContainer(300);
+        System.out.println(pop.history());
+        pop.addToTheContainer(2500);
+        System.out.println(pop.history());
     }
 
 }

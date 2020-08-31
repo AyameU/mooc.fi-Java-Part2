@@ -52,26 +52,6 @@ public class ContainerHistory {
         }
     }
 
-    /*
-
-    // this is not correct LOL
-
-    public double greatestFluctuation() {
-        if(historyList.isEmpty() || historyList.size() == 1) {
-            return 0.0;
-        }
-        else {
-            // Compare min and max values. absolute value is the num farthest from 0
-            if(Math.abs(this.maxValue()) > Math.abs(this.minValue())) {
-                return Math.abs(this.maxValue());
-            }
-            else {
-                return Math.abs(this.minValue());
-            }
-        }
-    }
-    */
-
     public double greatestFluctuation() {
         if(historyList.isEmpty() || historyList.size() == 1) {
             return 0.0;
