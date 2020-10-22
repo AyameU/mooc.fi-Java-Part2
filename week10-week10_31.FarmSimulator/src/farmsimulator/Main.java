@@ -54,5 +54,30 @@ public class Main {
         cow.milk();
         System.out.println(cow);
 
+        System.out.println();
+        System.out.println("31.3 - Milking Robot");
+        System.out.println();
+
+        MilkingRobot milkingRobot = new MilkingRobot();
+        Cow cow3 = new Cow();
+        System.out.println();
+
+        BulkTank tank3 = new BulkTank();
+        milkingRobot.setBulkTank(tank3);
+        System.out.println("Bulk tank: " + tank3);
+
+        for(int i = 0; i < 2; i++) {
+            System.out.println(cow3);
+            System.out.println("Living..");
+            for(int j = 0; j < 5; j++) {
+                cow3.liveHour();
+            }
+            System.out.println(cow3);
+
+            System.out.println("Milking...");
+            milkingRobot.milk(cow3);
+            System.out.println("Bulk tank: " + tank3);
+            System.out.println();
+        }
     }
 }
