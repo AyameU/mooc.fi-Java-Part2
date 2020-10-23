@@ -109,6 +109,26 @@ public class Main {
 
             barn.takeCareOf(cowList);
             System.out.println("Barn: " + barn);
+
+            System.out.println();
+            System.out.println("31.5 - Farm");
+            System.out.println();
+
+            Farm farm = new Farm("Esko", new Barn(new BulkTank()));
+            MilkingRobot robot2 = new MilkingRobot();
+            farm.installMilkingRobot(robot2);
+
+            farm.addCow(new Cow());
+            farm.addCow(new Cow());
+            farm.addCow(new Cow());
+
+
+            farm.liveHour();
+            farm.liveHour();
+
+            farm.manageCows();
+
+            System.out.println(farm);
         }
     }
 }
