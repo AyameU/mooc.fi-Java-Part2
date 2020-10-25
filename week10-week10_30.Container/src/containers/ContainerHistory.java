@@ -24,8 +24,7 @@ public class ContainerHistory {
             return 0.0;
         }
         else {
-            Collections.sort(historyList, Collections.reverseOrder());
-            return historyList.get(0);
+            return Collections.max(historyList);
         }
     }
 
@@ -34,8 +33,7 @@ public class ContainerHistory {
             return 0.0;
         }
         else {
-            Collections.sort(historyList);
-            return historyList.get(0);
+            return Collections.min(historyList);
         }
     }
 
@@ -59,15 +57,13 @@ public class ContainerHistory {
             ArrayList<Double> maxList = new ArrayList<Double>();
             double max = 0.0;
             for (int i = 0; i < historyList.size() - 1; i++) {
-                if (i != historyList.size() - 1) {
-                    max = historyList.get(i + 1) - historyList.get(i);
-                    maxList.add(max);
-                } else {
-                    max = historyList.get(i) - historyList.get(i - 1);
-                    maxList.add(max);
+                double result = Math.abs(historyList.get(i) - historyList.get(i + 1));
+
+                if(result > max) {
+                    max = result;
                 }
             }
-            return Math.abs(Collections.max(maxList));
+            return max;
         }
     }
 

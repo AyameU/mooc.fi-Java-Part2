@@ -67,7 +67,6 @@ public class Main {
         ProductContainerRecorder juiceBox = new ProductContainerRecorder("Juice Box", 1000.0, 1000.0);
         juiceBox.takeFromTheContainer(11.3);
         juiceBox.addToTheContainer(1.0);
-//System.out.println(juice.history()); // [1000.0, 988.7, 989.7]
 
         juiceBox.printAnalysis();
     }
