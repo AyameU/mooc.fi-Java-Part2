@@ -22,17 +22,33 @@ public class MindfulDictionary {
             return words.get(word);
         }
         else if(words.containsValue(word)) {
-            String translation = "";
-
-            for(String w : words.keySet()) {
-                if(words.get(w).equals(word)) {
-                   translation = w;
-                }
-            }
-            return translation;
+            return this.getKeyFromValue(word);
         }
         else {
             return null;
         }
+    }
+
+    public void remove(String word) {
+        // Find and remove entry based on key
+        if (words.containsKey(word)) {
+            words.remove(word);
+        }
+        else if(words.containsValue(word)) {
+            // Find and remove entry based on value.
+            String wordToRemove = this.getKeyFromValue(word);
+            words.remove(wordToRemove);
+        }
+    }
+
+    public String getKeyFromValue(String word) {
+        String translation = "";
+
+        for(String w : words.keySet()) {
+            if(words.get(w).equals(word)) {
+                    translation = w;
+            }
+        }
+        return translation;
     }
 }
