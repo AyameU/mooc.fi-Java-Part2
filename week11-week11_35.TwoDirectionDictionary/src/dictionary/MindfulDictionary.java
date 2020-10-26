@@ -73,4 +73,19 @@ public class MindfulDictionary {
             return false;
         }
     }
+
+    public boolean save() {
+        try {
+            FileWriter writer = new FileWriter(this.file);
+
+            for(String s : words.keySet()) {
+                //String wordKey = this.getKeyFromValue(s);
+                writer.write( s + ":" + words.get(s) + "\n");
+            }
+            writer.close();
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
+    }
 }
