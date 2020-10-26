@@ -2,13 +2,18 @@ package dictionary;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.io.*;
+import java.util.Scanner;
 
 public class MindfulDictionary {
 
-    private Map<String, String> words;
+    private Map<String, String> words = new HashMap<String, String>();
+    private String file;
 
-    public MindfulDictionary() {
-        words = new HashMap<String, String>();
+    public MindfulDictionary() {}
+
+    public MindfulDictionary(String file) {
+        this.file = file;
     }
 
     public void add(String word, String translation) {
@@ -50,5 +55,22 @@ public class MindfulDictionary {
             }
         }
         return translation;
+    }
+
+    public boolean load() {
+        try {
+            File file = new File(this.file);
+            Scanner scan = new Scanner(file);
+
+            // Loop through lines in file, split line into two parts and add to dictionary.
+            while(scan.hasNext()) {
+                String line = scan.nextLine();
+                String[] parts = line.split(":");
+                this.add(parts[0], parts[1]);
+            }
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
     }
 }
